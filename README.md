@@ -31,3 +31,6 @@ raw_load_string = (dir, obj, async = false)
 
 ## Source
 https://stackoverflow.com/questions/30003353/can-es6-template-literals-be-substituted-at-runtime-or-reused
+
+## License
+MIT
