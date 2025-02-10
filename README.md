@@ -2,6 +2,8 @@
 Raw Javascript Framework in < 50 lines 1.3kb library. Build website the native way. Its almost ReactJS-like! ReactJS uses {} RawJS uses the native ${} for templating without any bundling or additional library with same functionality. 
 ## Image
 ![image](https://github.com/user-attachments/assets/4f8cf9a2-9c31-45d8-aa2e-2cecbaed2da5)
+![image](https://github.com/user-attachments/assets/5ffc9a8a-fe87-4281-bf27-f1a78086e8c0)
+
 
 ## Introduction
 RawJS was created as my journey of building the smallest Javascript framework + template engine possible. Bundleless componetized templates makes your web development quicker and easy to maintain.
