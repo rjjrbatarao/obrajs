@@ -4,7 +4,7 @@ Raw Javascript Framework in < 50 lines 1.3kb library. Build website the native w
 ![image](https://github.com/user-attachments/assets/4f8cf9a2-9c31-45d8-aa2e-2cecbaed2da5)
 
 ## Introduction
-RawJS was created as my journey of building the smallest Javascript framework + template engine possible. Bundleless componetized templates makes your web project more fast and easy to maintain.
+RawJS was created as my journey of building the smallest Javascript framework + template engine possible. Bundleless componetized templates makes your web development quicker and easy to maintain.
 
 ## Why rawjs
 Many frameworks are built with a pack of bundlers, packes and rawjs just eliminate the need of it thus raw speed of web application development can be achieved with single page web applications.
