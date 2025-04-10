@@ -1,4 +1,4 @@
-# CollageJs
+# RawJs
 A lightweight(2kb) template engine using built in javascript template literal engine directly on .html or .gz files.
 
 ## About
