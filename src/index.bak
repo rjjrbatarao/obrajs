@@ -1,0 +1,68 @@
+/*
+    sources:
+    https://stackoverflow.com/questions/30003353/can-es6-template-literals-be-substituted-at-runtime-or-reused
+    https://developer.mozilla.org/en-US/docs/Web/API/DecompressionStream/DecompressionStream
+    https://gist.github.com/igrigorik/5736866
+*/
+const raw_tpl = (template, vars = {}) => {
+  const raw_function = "raw_" + Date.now(); // randomized function name
+  const handler = new Function(
+    "vars",
+    [
+      "const " +
+        raw_function +
+        " = ( " +
+        Object.keys(vars).join(", ") +
+        " ) =>",
+      "`" + template + "`",
+      "return " +
+        raw_function +
+        "(...Object.keys(vars).map(function(e){" +
+        "return typeof vars[e] === 'function' ?  vars[e].call() : vars[e];" +
+        "}))",
+    ].join("\n")
+  );
+  return handler(vars);
+};
+
+const gzip_to_string = (blob) => {
+  const ds = new DecompressionStream("gzip");
+  const decompressedStream = blob.stream().pipeThrough(ds);
+  return decompressedStream;
+};
+
+const raw_load_html = (id, dir, obj, async = false, compressed = false) => {
+  const request = new XMLHttpRequest();
+  request.open("GET", dir, async); // `false` makes the request synchronous
+  request.send(null);
+  if (request.status === 200) {
+    if (compressed === true) {
+      document.getElementById(id).innerHTML = raw_tpl(
+        gzip_to_string(request.response),
+        obj
+      );
+    } else {
+      document.getElementById(id).innerHTML = raw_tpl(
+        request.responseText,
+        obj
+      );
+    }
+
+    return request.responseText;
+  }
+  return null;
+};
+
+const raw_load_string = (dir, obj, async = false, compressed = false) => {
+  const request = new XMLHttpRequest();
+  request.open("GET", dir, async); // `false` makes the request synchronous
+  request.send(null);
+  if (request.status === 200) {
+    if (compressed === true) {
+      return raw_tpl(gzip_to_string(request.response), obj);
+    } else {
+      return raw_tpl(request.responseText, obj);
+    }
+  }
+  return null;
+};

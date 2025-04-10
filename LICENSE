@@ -1,34 +1,6 @@
-# CollageJs
-A lightweight(2kb) template engine using built in javascript template literal engine directly on .html or .gz files.
-
-## About
-RawJS build websites with reusable template files from any file extension without additional libray. This leverages javascripts built in template literal engine to process template string.
-
-## Uses
-Quick simple SPA's
-
-## Demo
-You can open devtools to see the actual code.
-https://rjjrbatarao.github.io/rawjs/examples/browser/
-
-
-## Methods and Getters
-* raw_tpl
-* raw_load_html
-* raw_load_string
-
-## Todo
-
-
-## Related projects
-```
-https://github.com/moappi/json2html
-```
-
-## License
 MIT License
 
-Copyright (c) 2022 collagejs
+Copyright (c) 2021 rjjrbatarao
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
