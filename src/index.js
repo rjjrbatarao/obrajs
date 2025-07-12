@@ -14,7 +14,7 @@ class RawJS {
    * @returns
    */
 
-  rawTemplate(template, vars = {}) {
+  rTemplate(template, vars = {}) {
     const raw_function = "raw_" + Date.now(); // randomized function name
     const handler = new Function(
       "vars",
@@ -28,8 +28,12 @@ class RawJS {
         "return " +
           raw_function +
           "(...Object.keys(vars).map(function(e){" +
-          "console.log(typeof vars[e] === 'function' ? vars[e].length : 0);" +
-          "return typeof vars[e] === 'function' ?  vars[e].call() : vars[e];" +
+          "console.log('test:',typeof vars[e] === 'function' ? vars[e].length : 0);" +
+          "return typeof vars[e] === 'function' ? vars[e].length > 0 ? " +
+          "'('+" +
+          "vars[e].toString()" +
+          "+')(event)'" +
+          ": vars[e].call() : vars[e];" +
           "}))",
       ].join("\n")
     );
@@ -54,18 +58,18 @@ class RawJS {
    * @param {*} compressed
    * @returns
    */
-  rawLoadHtml(id, dir, obj, async = false, compressed = false) {
+  rHtml(id, dir, obj, async = false, compressed = false) {
     const request = new XMLHttpRequest();
     request.open("GET", dir, async); // `false` makes the request synchronous
     request.send(null);
     if (request.status === 200) {
       if (compressed === true) {
-        document.getElementById(id).innerHTML = this.rawTemplate(
+        document.getElementById(id).innerHTML = this.rTemplate(
           this.gzipToString(request.response),
           obj
         );
       } else {
-        document.getElementById(id).innerHTML = this.rawTemplate(
+        document.getElementById(id).innerHTML = this.rTemplate(
           request.responseText,
           obj
         );
@@ -83,15 +87,15 @@ class RawJS {
    * @param {*} compressed
    * @returns
    */
-  rawLoadString(dir, obj, async = false, compressed = false) {
+  rString(dir, obj, async = false, compressed = false) {
     const request = new XMLHttpRequest();
     request.open("GET", dir, async); // `false` makes the request synchronous
     request.send(null);
     if (request.status === 200) {
       if (compressed === true) {
-        return this.rawTemplate(this.gzipToString(request.response), obj);
+        return this.rTemplate(this.gzipToString(request.response), obj);
       } else {
-        return this.rawTemplate(request.responseText, obj);
+        return this.rTemplate(request.responseText, obj);
       }
     }
     return null;

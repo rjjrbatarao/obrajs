@@ -3,7 +3,7 @@ const rjs = new RawJS();
 /**
  * load template test.html into app id
  */
-rjs.rawLoadHtml("app", "/rawjs/examples/browser/templates/test.html", {
+rjs.rHtml("app", "/examples/browser/templates/test.tpl", {
   title: "Minimal Raw Component",
   test: "this is the data",
   subid: "component1",
@@ -20,7 +20,7 @@ rjs.rawLoadHtml("app", "/rawjs/examples/browser/templates/test.html", {
 /**
  * load test.html template into component1 from first rawloadHtml
  */
-rjs.rawLoadHtml("component1", "/rawjs/examples/browser/templates/test.html", {
+rjs.rHtml("component1", "/examples/browser/templates/test.tpl", {
   title: "Minimal Raw Component",
   test: "this is the data",
   subid: "component2",
@@ -36,21 +36,19 @@ rjs.rawLoadHtml("component1", "/rawjs/examples/browser/templates/test.html", {
 });
 
 let count = 0;
-let users = ["hello user1", "hello user2", "hello user3"];
+let users = ["hello user1", "hello user2", "hello user3", "hello user4"];
 /**
  *
  * @returns template rendered from users array
  * count is global variable
  */
 const hello = () => {
+  console.log(users.length);
   let user_map = "";
   users.map((user) => {
-    user_map += rjs.rawLoadString(
-      "/rawjs/examples/browser/templates/testrow.html",
-      {
-        name: user,
-      }
-    );
+    user_map += rjs.rString("/examples/browser/templates/testrow.tpl", {
+      name: user,
+    });
   });
   return user_map;
 };
@@ -58,7 +56,7 @@ const hello = () => {
 /**
  * load test2.html template into component3
  */
-rjs.rawLoadHtml("component3", "/rawjs/examples/browser/templates/test2.html", {
+rjs.rHtml("component3", "/examples/browser/templates/test2.tpl", {
   title: "Minimal Raw test2.html",
   test: "this is the data new",
   name: () => {
@@ -73,14 +71,18 @@ rjs.rawLoadHtml("component3", "/rawjs/examples/browser/templates/test2.html", {
 /**
  * load testcount.html template into component3
  */
-rjs.rawLoadHtml(
-  "component4",
-  "/rawjs/examples/browser/templates/testcount.html",
-  {
-    title: "Minimal button update test",
-    count: count, //initialize to variable
-    increment: (count, b) => {
-      console.log(count, b);
-    },
-  }
-);
+rjs.rHtml("component4", "/examples/browser/templates/testcount.tpl", {
+  title: "Minimal button update test",
+  id: "count_1",
+  count: 1, //initialize to variable
+  increment: (event) => {
+    event.currentTarget.innerHTML = `clicked`;
+    document.getElementById(`count_1`).value = 2;
+    console.log(`hey`, event.currentTarget.innerHTML);
+  },
+  decrement: (event) => {
+    event.currentTarget.innerHTML = `clicked`;
+    document.getElementById(`count_1`).value = 1;
+    console.log(`hey`, event.currentTarget.innerHTML);
+  },
+});
