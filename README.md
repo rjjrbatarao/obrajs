@@ -2,7 +2,7 @@
 An ultra lightweight(2kb) reactive and fast template engine using built in javascript template literal engine.
 
 ## About
-RawJS build websites with reusable template files from any file extension without additional library. This leverages javascripts built in template literal engine to process template string and native javascript dom for reactivity.
+RawJS build websites with reusable template files from any file extension without additional library, compiling and bundling. This leverages javascripts built in template literal engine to process template string and native javascript dom for reactivity.
 
 ## Uses
 Quick simple and fast SPA's
