@@ -1,24 +1,26 @@
 # RawJs
-A lightweight(2kb) template engine using built in javascript template literal engine directly on .html or .gz files.
+An ultra lightweight(2kb) reactive and fast template engine using built in javascript template literal engine.
 
 ## About
-RawJS build websites with reusable template files from any file extension without additional libray. This leverages javascripts built in template literal engine to process template string.
+RawJS build websites with reusable template files from any file extension without additional library. This leverages javascripts built in template literal engine to process template string and native javascript dom for reactivity.
 
 ## Uses
-Quick simple SPA's
+Quick simple and fast SPA's
+Embedded dashboard for microcontrollers
+Organizing your layout with reusable templates
 
 ## Demo
-You can open devtools to see the actual code.
+Still fixing my github page.
 https://rjjrbatarao.github.io/rawjs/examples/browser/
 
 
 ## Methods and Getters
-* raw_tpl
-* raw_load_html
-* raw_load_string
+* rTemplate
+* rString
+* rHtml
 
-## Todo
-
+## New
+* binding functions to native events
 
 ## Related projects
 ```
