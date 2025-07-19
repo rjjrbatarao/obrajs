@@ -54,6 +54,35 @@ rjs.rHtml("app", "/test.tpl", {
 </div>
 
 ```
+
+## Example using global data
+### javascript
+```javascript
+const rjs = new RawJS();
+let count = 0;
+let users = ["hello user1", "hello user2", "hello user3", "hello user4"];
+/**
+ *
+ * @returns template rendered from users array
+ * count is global variable
+ */
+const hello = () => {
+  console.log(users.length);
+  let user_map = "";
+  users.map((user) => {
+    user_map += rjs.rString("/testrow.tpl", {
+      name: user,
+    });
+  });
+  return user_map;
+};
+```
+### template
+```html
+<div>
+  <p>${name}</p>
+</div>
+```
 ## Example with events
 ### javascript
 ```javascript
