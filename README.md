@@ -76,11 +76,22 @@ const hello = () => {
   return user_map;
 };
 ```
-### template
+### template1
 ```html
 <div>
   <p>${name}</p>
 </div>
+```
+### template2
+```
+<div>
+  <div>${hello()}</div>
+  <div>
+    ${rjs.rString("/testrow.tpl", { name: "rawhello"
+    })}
+  </div>
+</div>
+
 ```
 ## Example with events
 ### javascript
