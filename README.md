@@ -59,7 +59,6 @@ rjs.rHtml("app", "/test.tpl", {
 ### javascript
 ```javascript
 const rjs = new RawJS();
-let count = 0;
 let users = ["hello user1", "hello user2", "hello user3", "hello user4"];
 /**
  *
