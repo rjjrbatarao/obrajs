@@ -13,7 +13,8 @@ Organizing your web layout with reusable templates
 Still fixing my github page.
 https://rjjrbatarao.github.io/rawjs/examples/browser/
 
-## Javascript
+## Basic Example
+### javascript
 ```javascript
 const rjs = new RawJS();
 
@@ -36,8 +37,7 @@ rjs.rHtml("app", "/test.tpl", {
 });
 
 ```
-
-## Template
+### template
 ```html
 <div>
   <p>${title}</p>
@@ -51,7 +51,41 @@ rjs.rHtml("app", "/test.tpl", {
 </div>
 
 ```
+## Example with events
+### javascript
+```javascript
+const rjs = new RawJS();
+/**
+ * load testcount.html template into component3
+ */
+rjs.rHtml("component4", "/testcount.tpl", {
+  title: "Minimal button update test",
+  id: "count_1",
+  count: 1, //initialize to variable
+  increment: (event) => {
+    event.currentTarget.innerHTML = `clicked`;
+    document.getElementById(`count_1`).value = 2;
+    console.log(`inc`, event.currentTarget.innerHTML);
+  },
+  decrement: (event) => {
+    event.currentTarget.innerHTML = `clicked`;
+    document.getElementById(`count_1`).value = 1;
+    console.log(`dec`, event.currentTarget.innerHTML);
+  },
+});
+### template
 
+```
+### template
+```html
+<div>
+  <h3>${title}</h3>
+  <input id="${id}" value="${count}"></input>
+  <button onClick="${increment}">Increment</button>
+  <button onClick="${decrement}">Decrement</button>
+</div>
+
+```
 ## Methods and Getters
 * rTemplate
 * rString
