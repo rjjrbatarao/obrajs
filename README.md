@@ -73,8 +73,6 @@ rjs.rHtml("component4", "/testcount.tpl", {
     console.log(`dec`, event.currentTarget.innerHTML);
   },
 });
-### template
-
 ```
 ### template
 ```html
