@@ -83,7 +83,7 @@ const hello = () => {
 </div>
 ```
 ### template2
-```
+```html
 <div>
   <div>${hello()}</div>
   <div>
