@@ -88,7 +88,7 @@ const hello = () => {
 const rjs = new RawJS();
 /**
  * load testcount.html template into component3
- * Example of a reactive template by adding event inside a function
+ * Example of a reactive template by adding event as function argument
  * rawjs will treat is as event function.
  */
 rjs.rHtml("component4", "/testcount.tpl", {
