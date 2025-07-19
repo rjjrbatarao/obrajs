@@ -20,6 +20,11 @@ const rjs = new RawJS();
 
 /**
  * load template test.html into app id
+ * the json keys naming is upto you it can
+ * be any valid json key.
+ * using function with no arguments as value
+ * will execute everything inside and returns
+ * the result. 
  */
 rjs.rHtml("app", "/test.tpl", {
   title: "Minimal Raw Component",
@@ -55,6 +60,8 @@ rjs.rHtml("app", "/test.tpl", {
 const rjs = new RawJS();
 /**
  * load testcount.html template into component3
+ * Example of a reactive template by adding event inside a function
+ * rawjs will treat is as event function.
  */
 rjs.rHtml("component4", "/testcount.tpl", {
   title: "Minimal button update test",
