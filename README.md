@@ -46,8 +46,6 @@ rjs.rHtml("app", "/test.tpl", {
   <div>${func}</div>
   <button ${disabled}>Disabled</button>
   <div id="${subid}"></div>
-  <div id="component3"></div>
-  <div id="component4"></div>
 </div>
 
 ```
