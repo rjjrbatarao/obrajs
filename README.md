@@ -82,8 +82,7 @@ const rjs = new RawJS();
 let users = ["hello user1", "hello user2", "hello user3", "hello user4"];
 /**
  *
- * @returns template rendered from users array
- * count is global variable
+ * @returns template rendered from users global array
  */
 const hello = () => {
   console.log(users.length);
