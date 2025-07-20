@@ -14,6 +14,8 @@ Still fixing my github page.
 https://rjjrbatarao.github.io/rawjs/examples/browser/
 
 ## index.html
+`you can add style its up to you`
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
