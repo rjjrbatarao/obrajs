@@ -152,6 +152,9 @@ rjs.rHtml("component4", "/testcount.tpl", {
 * rString
 * rHtml
 
+## Notes
+you need backticks to represent string ie. `clicked` like in the example
+
 ## New
 * binding functions to native events
 
