@@ -5,6 +5,8 @@ const rjs = new RawJS();
  */
 rjs.rHtml("app", "/examples/browser/templates/test.tpl", {
   title: "Minimal Raw Component",
+  styleName: "color: red;",
+  className: "color-blue",
   test: "this is the data",
   subid: "component1",
   name: () => {
@@ -19,9 +21,12 @@ rjs.rHtml("app", "/examples/browser/templates/test.tpl", {
 });
 /**
  * load test.html template into component1 from first rawloadHtml
+ * this demonstrates template reuse
  */
 rjs.rHtml("component1", "/examples/browser/templates/test.tpl", {
   title: "Minimal Raw Component",
+  styleName: "color: red;",
+  className: "color-blue",  
   test: "this is the data",
   subid: "component2",
   name: () => {
@@ -64,10 +69,6 @@ rjs.rHtml("component3", "/examples/browser/templates/test2.tpl", {
   },
 });
 
-// const increment = () => {
-//   document.getElementById("count_1").value = count++;
-// };
-
 /**
  * load testcount.html template into component3
  */
@@ -78,11 +79,11 @@ rjs.rHtml("component4", "/examples/browser/templates/testcount.tpl", {
   increment: (event) => {
     event.currentTarget.innerHTML = `clicked`;
     document.getElementById(`count_1`).value = 2;
-    console.log(`hey`, event.currentTarget.innerHTML);
+    console.log(`inc`, event.currentTarget.innerHTML);
   },
   decrement: (event) => {
     event.currentTarget.innerHTML = `clicked`;
     document.getElementById(`count_1`).value = 1;
-    console.log(`hey`, event.currentTarget.innerHTML);
+    console.log(`dec`, event.currentTarget.innerHTML);
   },
 });
