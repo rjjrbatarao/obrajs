@@ -33,8 +33,8 @@ https://rjjrbatarao.github.io/rawjs/examples/browser/
 ```
 
 ## Basic Example
-### javascript
-```javascript (app.js)
+### javascript (app.js)
+```javascript 
 const rjs = new RawJS();
 
 /**
@@ -60,8 +60,8 @@ rjs.rHtml("app", "/test.tpl", {
 });
 
 ```
-### template
-```html (test.tpl)
+### template (test.tpl)
+```html 
 <div>
   <p>${title}</p>
   <div>${test}</div>
@@ -74,8 +74,8 @@ rjs.rHtml("app", "/test.tpl", {
 ```
 
 ## Example using global data
-### javascript 
-```javascript (app.js)
+### javascript (app.js)
+```javascript 
 const rjs = new RawJS();
 let users = ["hello user1", "hello user2", "hello user3", "hello user4"];
 /**
@@ -112,8 +112,8 @@ const hello = () => {
 
 ```
 ## Example with events
-### javascript
-```javascript (app.js)
+### javascript (app.js)
+```javascript 
 const rjs = new RawJS();
 /**
  * load testcount.html template into component3
