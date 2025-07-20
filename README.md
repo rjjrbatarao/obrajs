@@ -147,6 +147,45 @@ rjs.rHtml("component4", "/testcount.tpl", {
 </div>
 
 ```
+
+## Example with styling
+### javascript (app.js)
+```javascript 
+const rjs = new RawJS();
+/**
+ * load template test.html into app id
+ */
+rjs.rHtml("app", "/test.tpl", {
+  title: "Minimal Raw Component",
+  styleName: "color: red;",
+  className: "color-blue",
+  test: "this is the data",
+  subid: "component1",
+  name: () => {
+    return "john doe 1";
+  },
+  func: () => {
+    return 2 * 2;
+  }, // use arithmetic
+  disabled: () => {
+    return 1 ? "disabled" : "";
+  },
+});
+```
+### template (test.tpl)
+```html
+<div>
+  <p style="${styleName}">${title}</p>
+  <div class="${className}">${test}</div>
+  <div>${name}</div>
+  <div>${func}</div>
+  <button ${disabled}>Disabled</button>
+  <div id="${subid}"></div>
+  <div id="component3"></div>
+  <div id="component4"></div>
+</div>
+```
+
 ## Methods and Getters
 * rTemplate
 * rString
