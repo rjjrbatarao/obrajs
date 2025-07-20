@@ -140,15 +140,15 @@ let count = 1;
 rjs.rHtml("component4", "/testcount.tpl", {
   title: "Minimal button update test",
   id: "count_1",
-  count: 1, //initialize to variable
+  count: count, //initialize to variable
   increment: (event) => {
     event.currentTarget.innerHTML = `clicked`;
-    document.getElementById(`count_1`).value = 2;
+    document.getElementById(`count_1`).value = count++;
     console.log(`inc`, event.currentTarget.innerHTML);
   },
   decrement: (event) => {
     event.currentTarget.innerHTML = `clicked`;
-    document.getElementById(`count_1`).value = 1;
+    document.getElementById(`count_1`).value = count--;
     console.log(`dec`, event.currentTarget.innerHTML);
   },
 });
