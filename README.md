@@ -95,6 +95,17 @@ const hello = () => {
   });
   return user_map;
 };
+
+/**
+ * load test2.html template into component3
+ */
+rjs.rHtml("component3", "/main.tpl", {
+  title: "Minimal Raw test2.html",
+  test: "this is the data new",
+  name: () => {
+    return "john doe 3";
+  },
+});
 ```
 ### template1 (testrow.tpl)
 ```html
@@ -105,6 +116,9 @@ const hello = () => {
 ### template2 (main.tpl)
 ```html
 <div>
+  <p>${title}</p>
+  <div>${test}</div>
+  <div>${name}</div>
   <div>${hello()}</div>
   <div>
     ${rjs.rString("/testrow.tpl", { name: "rawhello"
