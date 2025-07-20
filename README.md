@@ -3,6 +3,7 @@ An ultra lightweight(2kb) reactive componetized lazyloaded json template engine 
 
 ## About
 RawJS build websites with reusable template files from any file extension without additional library, compiling and bundling. This leverages javascripts built on template literal engine to process template string and native javascript dom for reactivity.
+Bringing back raw dom manipulation for learning javascript.
 
 ## Uses
 Quick simple and fast SPA's
