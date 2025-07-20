@@ -13,15 +13,33 @@ Organizing your web layout with reusable templates
 Still fixing my github page.
 https://rjjrbatarao.github.io/rawjs/examples/browser/
 
+## index.html
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>My RawJS Webpage</title>
+  </head>
+
+  <body>
+    <h1>Hello World!</h1>
+    <div id="app">test</div>
+  </body>
+  <script src="./rawjs.js"></script>
+  <script src="./app.js"></script>
+</html>
+
+```
+
 ## Basic Example
 ### javascript
-```javascript
+```javascript (app.js)
 const rjs = new RawJS();
 
 /**
  * load template test.html into app id
- * the json keys naming is upto you it can
- * be any valid json key.
+ * the json keys naming is upto you it can be any valid json key.
  * using function with no arguments as value
  * will execute everything inside and returns
  * the result. 
@@ -43,7 +61,7 @@ rjs.rHtml("app", "/test.tpl", {
 
 ```
 ### template
-```html
+```html (test.tpl)
 <div>
   <p>${title}</p>
   <div>${test}</div>
@@ -56,8 +74,8 @@ rjs.rHtml("app", "/test.tpl", {
 ```
 
 ## Example using global data
-### javascript
-```javascript
+### javascript 
+```javascript (app.js)
 const rjs = new RawJS();
 let users = ["hello user1", "hello user2", "hello user3", "hello user4"];
 /**
@@ -76,13 +94,13 @@ const hello = () => {
   return user_map;
 };
 ```
-### template1
+### template1 (testrow.tpl)
 ```html
 <div>
   <p>${name}</p>
 </div>
 ```
-### template2
+### template2 (main.tpl)
 ```html
 <div>
   <div>${hello()}</div>
@@ -95,13 +113,14 @@ const hello = () => {
 ```
 ## Example with events
 ### javascript
-```javascript
+```javascript (app.js)
 const rjs = new RawJS();
 /**
  * load testcount.html template into component3
  * Example of a reactive template by adding event as function argument
  * rawjs will treat is as event function.
  */
+let count = 1;
 rjs.rHtml("component4", "/testcount.tpl", {
   title: "Minimal button update test",
   id: "count_1",
@@ -118,7 +137,7 @@ rjs.rHtml("component4", "/testcount.tpl", {
   },
 });
 ```
-### template
+### template (testcount.tpl)
 ```html
 <div>
   <h3>${title}</h3>
