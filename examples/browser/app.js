@@ -51,7 +51,7 @@ const hello = () => {
   console.log(users.length);
   let user_map = "";
   users.map((user) => {
-    user_map += ojs.oString("/examples/browser/templates/testrow.html", {
+    user_map += ojs.oString("/obrajs/examples/browser/templates/testrow.html", {
       name: user,
     });
   });
