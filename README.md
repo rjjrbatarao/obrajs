@@ -47,7 +47,7 @@ const ojs = new ObraJS();
  * will execute everything inside and returns
  * the result. 
  */
-ojs.oHtml("app", "/test.tpl", {
+ojs.oHtml("app", "/test.html", {
   title: "Minimal Raw Component",
   test: "this is the data",
   subid: "component1",
@@ -63,7 +63,7 @@ ojs.oHtml("app", "/test.tpl", {
 });
 
 ```
-### template (test.tpl)
+### template (test.html)
 ```html 
 <div>
   <p>${title}</p>
@@ -89,7 +89,7 @@ const hello = () => {
   console.log(users.length);
   let user_map = "";
   users.map((user) => {
-    user_map += rjs.oString("/testrow.tpl", {
+    user_map += rjs.oString("/testrow.html", {
       name: user,
     });
   });
@@ -99,7 +99,7 @@ const hello = () => {
 /**
  * load test2.html template into component3
  */
-ojs.oHtml("component3", "/main.tpl", {
+ojs.oHtml("component3", "/main.html", {
   title: "Minimal Raw test2.html",
   test: "this is the data new",
   name: () => {
@@ -107,13 +107,13 @@ ojs.oHtml("component3", "/main.tpl", {
   },
 });
 ```
-### template1 (testrow.tpl)
+### template1 (testrow.html)
 ```html
 <div>
   <p>${name}</p>
 </div>
 ```
-### template2 (main.tpl)
+### template2 (main.html)
 ```html
 <div>
   <p>${title}</p>
@@ -121,7 +121,7 @@ ojs.oHtml("component3", "/main.tpl", {
   <div>${name}</div>
   <div>${hello()}</div>
   <div>
-    ${rjs.rString("/testrow.tpl", { name: "rawhello"
+    ${rjs.rString("/testrow.html", { name: "rawhello"
     })}
   </div>
 </div>
@@ -137,7 +137,7 @@ const ojs = new ObraJS();
  * obrajs will treat is as event function.
  */
 let count = 1;
-ojs.oHtml("component4", "/testcount.tpl", {
+ojs.oHtml("component4", "/testcount.html", {
   title: "Minimal button update test",
   id: "count_1",
   count: count, //initialize to variable
@@ -153,7 +153,7 @@ ojs.oHtml("component4", "/testcount.tpl", {
   },
 });
 ```
-### template (testcount.tpl)
+### template (testcount.html)
 ```html
 <div>
   <h3>${title}</h3>
@@ -171,7 +171,7 @@ const ojs = new ObraJS();
 /**
  * load template test.html into app id
  */
-ojs.oHtml("app", "/test.tpl", {
+ojs.oHtml("app", "/test.html", {
   title: "Minimal Raw Component",
   styleName: "color: red;",
   className: "color-blue",
@@ -188,7 +188,7 @@ ojs.oHtml("app", "/test.tpl", {
   },
 });
 ```
-### template (test.tpl)
+### template (test.html)
 ```html
 <div>
   <p style="${styleName}">${title}</p>
