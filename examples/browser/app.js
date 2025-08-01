@@ -75,15 +75,17 @@ rjs.rHtml("component3", "/examples/browser/templates/test2.tpl", {
 rjs.rHtml("component4", "/examples/browser/templates/testcount.tpl", {
   title: "Minimal button update test",
   id: "count_1",
-  count: 1, //initialize to variable
+  count: 0, //initialize to variable
   increment: (event) => {
-    event.currentTarget.innerHTML = `clicked`;
-    document.getElementById(`count_1`).value = 2;
+    event.currentTarget.innerHTML = `clicked up`;
+    count++;
+    document.getElementById(`count_1`).value = count;
     console.log(`inc`, event.currentTarget.innerHTML);
   },
   decrement: (event) => {
-    event.currentTarget.innerHTML = `clicked`;
-    document.getElementById(`count_1`).value = 1;
+    event.currentTarget.innerHTML = `clicked down`;
+    count--;
+    document.getElementById(`count_1`).value = count;
     console.log(`dec`, event.currentTarget.innerHTML);
   },
 });
