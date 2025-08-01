@@ -89,7 +89,7 @@ const hello = () => {
   console.log(users.length);
   let user_map = "";
   users.map((user) => {
-    user_map += rjs.oString("/testrow.html", {
+    user_map += ojs.oString("/testrow.html", {
       name: user,
     });
   });
@@ -121,7 +121,7 @@ ojs.oHtml("component3", "/main.html", {
   <div>${name}</div>
   <div>${hello()}</div>
   <div>
-    ${rjs.rString("/testrow.html", { name: "rawhello"
+    ${ojs.rString("/testrow.html", { name: "rawhello"
     })}
   </div>
 </div>
