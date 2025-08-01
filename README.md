@@ -12,7 +12,7 @@ Organizing your web layout with reusable templates
 
 ## Demo
 Still fixing my github page.
-https://rjjrbatarao.github.io/obra/examples/browser/
+https://rjjrbatarao.github.io/obrajs/examples/browser/
 
 ## index.html
 `you can add style its up to you`
