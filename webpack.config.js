@@ -4,8 +4,8 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "./dist"),
-    filename: "rawjs.js",
-    library: "RawJS",
+    filename: "obrajs.js",
+    library: "ObraJS",
     libraryTarget: "umd",
     globalObject: "this",
   },
