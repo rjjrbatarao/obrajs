@@ -1,8 +1,8 @@
-# RawJs
+# ObraJS
 An ultra lightweight(2kb) reactive componetized lazyloaded json template engine using built in javascript template literal, works in the browser out of the box without building or compiling, just serve the teplate files as static assets.
 
 ## About
-RawJS build websites with reusable template files from any file extension without additional library, compiling and bundling. This leverages javascripts built-in template literal engine to process template string and native javascript dom for reactivity.
+ObraJS build websites with reusable template files from any file extension without additional library, compiling and bundling. This leverages javascripts built-in template literal engine to process template string and native javascript dom for reactivity.
 Bringing back raw dom manipulation for learning javascript.
 
 ## Uses
@@ -12,7 +12,7 @@ Organizing your web layout with reusable templates
 
 ## Demo
 Still fixing my github page.
-https://rjjrbatarao.github.io/rawjs/examples/browser/
+https://rjjrbatarao.github.io/obra/examples/browser/
 
 ## index.html
 `you can add style its up to you`
@@ -22,14 +22,14 @@ https://rjjrbatarao.github.io/rawjs/examples/browser/
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>My RawJS Webpage</title>
+    <title>My ObraJS Webpage</title>
   </head>
 
   <body>
     <h1>Hello World!</h1>
     <div id="app">test</div>
   </body>
-  <script src="./rawjs.js"></script>
+  <script src="./obrajs.js"></script>
   <script src="./app.js"></script>
 </html>
 
@@ -38,7 +38,7 @@ https://rjjrbatarao.github.io/rawjs/examples/browser/
 ## Basic Example
 ### javascript (app.js)
 ```javascript 
-const rjs = new RawJS();
+const ojs = new ObraJS();
 
 /**
  * load template test.html into app id
@@ -47,7 +47,7 @@ const rjs = new RawJS();
  * will execute everything inside and returns
  * the result. 
  */
-rjs.rHtml("app", "/test.tpl", {
+ojs.oHtml("app", "/test.tpl", {
   title: "Minimal Raw Component",
   test: "this is the data",
   subid: "component1",
@@ -79,7 +79,7 @@ rjs.rHtml("app", "/test.tpl", {
 ## Example using global data
 ### javascript (app.js)
 ```javascript 
-const rjs = new RawJS();
+const ojs = new ObraJS();
 let users = ["hello user1", "hello user2", "hello user3", "hello user4"];
 /**
  *
@@ -89,7 +89,7 @@ const hello = () => {
   console.log(users.length);
   let user_map = "";
   users.map((user) => {
-    user_map += rjs.rString("/testrow.tpl", {
+    user_map += rjs.oString("/testrow.tpl", {
       name: user,
     });
   });
@@ -99,7 +99,7 @@ const hello = () => {
 /**
  * load test2.html template into component3
  */
-rjs.rHtml("component3", "/main.tpl", {
+ojs.oHtml("component3", "/main.tpl", {
   title: "Minimal Raw test2.html",
   test: "this is the data new",
   name: () => {
@@ -130,14 +130,14 @@ rjs.rHtml("component3", "/main.tpl", {
 ## Example with events
 ### javascript (app.js)
 ```javascript 
-const rjs = new RawJS();
+const ojs = new ObraJS();
 /**
  * load testcount.html template into component3
  * Example of a reactive template by adding event as function argument
  * rawjs will treat is as event function.
  */
 let count = 1;
-rjs.rHtml("component4", "/testcount.tpl", {
+ojs.oHtml("component4", "/testcount.tpl", {
   title: "Minimal button update test",
   id: "count_1",
   count: count, //initialize to variable
@@ -167,11 +167,11 @@ rjs.rHtml("component4", "/testcount.tpl", {
 ## Example with styling
 ### javascript (app.js)
 ```javascript 
-const rjs = new RawJS();
+const ojs = new ObraJS();
 /**
  * load template test.html into app id
  */
-rjs.rHtml("app", "/test.tpl", {
+ojs.oHtml("app", "/test.tpl", {
   title: "Minimal Raw Component",
   styleName: "color: red;",
   className: "color-blue",
@@ -201,9 +201,9 @@ rjs.rHtml("app", "/test.tpl", {
 ```
 
 ## Methods and Getters
-* rTemplate
-* rString
-* rHtml
+* oTemplate
+* oString
+* oHtml
 
 ## Notes
 you need backticks to represent string ie. `clicked` like in the example
