@@ -1,24 +1,28 @@
 {
-  "name": "rawjs",
+  "name": "@rjjrbatarao/obrajs",
   "version": "1.0.0",
   "description": "template literal processor",
-  "main": "dist/rawjs.js",
+  "main": "dist/obrajs.js",
   "scripts": {
-    "build:browser": "webpack && cp dist/rawjs.js examples/browser",
-    "build:node": "webpack && cp dist/rawjs.js examples/node/ && node examples/node/example.js",
+    "build:browser": "webpack && cp dist/obrajs.js examples/browser",
+    "build:node": "webpack && cp dist/obrajs.js examples/node/ && node examples/node/example.js",
     "build": "webpack"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rjjrbatarao/rawjs.git"
+    "url": "git+https://github.com/rjjrbatarao/obrajs.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "template",
+    "raw",
+    "reactive"
+  ],
+  "author": "rjjrbatarao",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rjjrbatarao/rawjs/issues"
+    "url": "https://github.com/rjjrbatarao/obrajs/issues"
   },
-  "homepage": "https://github.com/rjjrbatarao/rawjs#readme",
+  "homepage": "https://github.com/rjjrbatarao/obrajs#readme",
   "devDependencies": {
     "@babel/core": "^7.16.5",
     "@babel/preset-env": "^7.16.5",
