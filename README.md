@@ -134,7 +134,7 @@ const ojs = new ObraJS();
 /**
  * load testcount.html template into component3
  * Example of a reactive template by adding event as function argument
- * rawjs will treat is as event function.
+ * obrajs will treat is as event function.
  */
 let count = 1;
 ojs.oHtml("component4", "/testcount.tpl", {
@@ -219,7 +219,7 @@ https://github.com/moappi/json2html
 ## License
 MIT License
 
-Copyright (c) 2025 rawjs
+Copyright (c) 2025 obrajs
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
