@@ -11,8 +11,10 @@ Embedded dashboard for microcontrollers
 Organizing your web layout with reusable templates
 
 ## Demo
-Still fixing my github page.
 https://rjjrbatarao.github.io/obrajs/examples/browser/
+
+## Links
+https://www.npmjs.com/package/@rjjrbatarao/obrajs
 
 ## index.html
 `you can add style its up to you`
@@ -238,3 +240,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
