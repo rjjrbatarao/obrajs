@@ -31,7 +31,7 @@ class ObraJS {
           "console.log('test:',typeof vars[e] === 'function' ? vars[e].length : 0);" +
           "return typeof vars[e] === 'function' ? vars[e].length > 0 ? " +
           "'('+" +
-          "vars[e].toString()" +
+          "vars[e].toString().replace(/\\\"/g,\"\'\")"  +
           "+')(event)'" +
           ": vars[e].call() : vars[e];" +
           "}))",
