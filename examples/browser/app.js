@@ -3,7 +3,7 @@ const ojs = new ObraJS();
 /**
  * load template test.html into app id
  */
-ojs.oHtml("app", "/examples/browser/templates/test.html", {
+ojs.oHtml("app", "https://rjjrbatarao.github.io/obrajs/examples/browser/templates/test.html", {
   title: "Minimal Raw Component",
   styleName: "color: red;",
   className: "color-blue",
@@ -23,7 +23,7 @@ ojs.oHtml("app", "/examples/browser/templates/test.html", {
  * load test.html template into component1 from first rawloadHtml
  * this demonstrates template reuse
  */
-ojs.oHtml("component1", "/examples/browser/templates/test.html", {
+ojs.oHtml("component1", "https://rjjrbatarao.github.io/obrajs/examples/browser/templates/test.html", {
   title: "Minimal Raw Component",
   styleName: "color: red;",
   className: "color-blue",
@@ -51,7 +51,7 @@ const hello = () => {
   console.log(users.length);
   let user_map = "";
   users.map((user) => {
-    user_map += ojs.oString("/examples/browser/templates/testrow.html", {
+    user_map += ojs.oString("https://rjjrbatarao.github.io/obrajs/examples/browser/templates/testrow.html", {
       name: user,
     });
   });
@@ -61,7 +61,7 @@ const hello = () => {
 /**
  * load test2.html template into component3
  */
-ojs.oHtml("component3", "/examples/browser/templates/test2.html", {
+ojs.oHtml("component3", "https://rjjrbatarao.github.io/obrajs/examples/browser/templates/test2.html", {
   title: "Minimal Raw test2.html",
   test: "this is the data new",
   name: () => {
@@ -72,7 +72,7 @@ ojs.oHtml("component3", "/examples/browser/templates/test2.html", {
 /**
  * load testcount.html template into component3
  */
-ojs.oHtml("component4", "/examples/browser/templates/testcount.html", {
+ojs.oHtml("component4", "https://rjjrbatarao.github.io/obrajs/examples/browser/templates/testcount.html", {
   title: "Minimal button update test",
   id: "count_1",
   count: 0, //initialize to variable
@@ -89,3 +89,4 @@ ojs.oHtml("component4", "/examples/browser/templates/testcount.html", {
     console.log("dec", count);
   },
 });
+
