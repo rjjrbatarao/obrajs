@@ -39,17 +39,21 @@ class ObraJS {
     );
     return handler(vars);
   }
-  /**
-   *
-   * @param {*} blob
-   * @returns
-   */
-  async gzipToString(blob) {
-    const ds = new DecompressionStream("gzip");
-    const decompressedStream = blob.stream().pipeThrough(ds);
-    const response = new Response(decompressedStream);
-    return await response.text();
+
+
+
+  async oHtmlGzip(id, dir, obj){
+     const response = await fetch(dir);
+     const ds = new DecompressionStream('gzip');
+     const decompressed_stream = response.body.pipeThrough(ds);
+     const responseString = await new Response(decompressed_stream).text();
+
+     document.getElementById(id).innerHTML = this.oTemplate(
+       responseString,
+       obj
+     );
   }
+
   /**
    *
    * @param {*} id
@@ -59,26 +63,20 @@ class ObraJS {
    * @param {*} compressed
    * @returns
    */
-  oHtml(id, dir, obj, async = false, compressed = false) {
-    const request = new XMLHttpRequest();
-    request.open("GET", dir, async); // `false` makes the request synchronous
-    request.send(null);
-    if (request.status === 200) {
-      if (compressed === true) {
-        document.getElementById(id).innerHTML = this.oTemplate(
-          this.gzipToString(request.response),
-          obj
-        );
-      } else {
-        document.getElementById(id).innerHTML = this.oTemplate(
-          request.responseText,
-          obj
-        );
-      }
-
-      return request.responseText;
-    }
-    return null;
+  oHtml(id, dir, obj, async = false) {
+        const request = new XMLHttpRequest();
+        request.open("GET", dir, async); // `false` makes the request synchronous
+        request.send(null);
+        if (request.status === 200) {
+          document.getElementById(id).innerHTML = this.oTemplate(
+            request.responseText,
+            obj
+          );
+          return request.responseText;
+        } else {
+	  return null;
+	}
+      
   }
   /**
    *
