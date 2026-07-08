@@ -44,10 +44,11 @@ class ObraJS {
    * @param {*} blob
    * @returns
    */
-  gzipToString(blob) {
+  async gzipToString(blob) {
     const ds = new DecompressionStream("gzip");
     const decompressedStream = blob.stream().pipeThrough(ds);
-    return decompressedStream;
+    const response = new Response(decompressedStream);
+    return await response.text();
   }
   /**
    *
