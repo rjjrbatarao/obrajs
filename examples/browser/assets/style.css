@@ -1,4 +1,13 @@
 
+    /* Making the sidebar sticky so it stays on screen when scrolling */
+    @media (min-width: 768px) {
+      aside {
+        position: sticky;
+        top: var(--pico-spacing);
+        height: fit-content;
+      }
+    }
+
 .color-blue {
 	color: blue;
 }
