@@ -7,13 +7,7 @@
         height: fit-content;
       }
     }
-    @media (max-width: 768px) {
-      aside {
-		  
-        width: 300px;
-        height: fit-content;
-      }
-    }
+
 .color-blue {
 	color: blue;
 }
