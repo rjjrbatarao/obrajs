@@ -28,7 +28,6 @@ class ObraJS {
         "return " +
           raw_function +
           "(...Object.keys(vars).map(function(e){" +
-          "console.log('test:',typeof vars[e] === 'function' ? vars[e].length : 0);" +
           "return typeof vars[e] === 'function' ? vars[e].length > 0 ? " +
           "'('+" +
           "vars[e].toString().replace(/\\\"/g,\"\'\")"  +
@@ -99,7 +98,7 @@ class ObraJS {
    * @param {*} dir
    * @returns
    */
-  oMapFile(arry, dir){
+  oMapFile(arry, dir = ""){
     let route_map = "";
      arry.map(({file, props}) => {
        route_map += this.oString(dir + file, {...props});
