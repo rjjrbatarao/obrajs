@@ -99,5 +99,5 @@ ojs.oHtml("component5", "https://rjjrbatarao.github.io/obrajs/examples/browser/t
   name: () => {
     return "john doe 5";
   },
-});
+}, false, true);
 
