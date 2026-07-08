@@ -90,3 +90,14 @@ ojs.oHtml("component4", "https://rjjrbatarao.github.io/obrajs/examples/browser/t
   },
 });
 
+/**
+ * load testgzip.html template into component5
+ */
+ojs.oHtml("component5", "https://rjjrbatarao.github.io/obrajs/examples/browser/templates/testgzip.gz", {
+  title: "Minimal Raw testgzip.html",
+  test: "this is the data new",
+  name: () => {
+    return "john doe 5";
+  },
+});
+
