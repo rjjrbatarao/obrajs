@@ -10,9 +10,43 @@
   </head>
 
   <body>
+  <!-- Top Header Navigation -->
+  <header class="container">
+    <nav>
+      <ul>
+        <li><strong>My App</strong></li>
+      </ul>
+      <ul>
+        <li><a href="#" class="secondary">Account</a></li>
+      </ul>
+    </nav>
+  </header>
+    
     <main class="container">
-      <h1>Hello World!</h1>
-      <div id="app">test</div>
+      <div class="grid">
+      <!-- 1. The Sidebar Panel -->
+      <aside>
+        <nav>
+          <ul>
+            <li><a href="#" class="contrast">🚀 Dashboard</a></li>
+            <li><a href="#">📂 Projects</a></li>
+            <li><a href="#">📊 Analytics</a></li>
+            <li><a href="#">⚙️ Settings</a></li>
+          </ul>
+        </nav>
+      </aside>
+      <!-- 2. The Main Page Content Area -->
+      <section>
+        <h2>Main Content Area</h2>
+        <p>This layout uses Pico CSS's built-in grid element to display your navigation alongside your core content.</p>
+        <article>
+          <h3>Dashboard Overview</h3>
+          <p>As you scale your application window down, Pico CSS automatically adjusts the layout columns to become vertical cards for phone screens.</p>
+          <div id="app">test</div>
+        </article>
+      </section>
+        
+      </div>
     </main>
   </body>
   <script src="./obrajs.js"></script>
