@@ -82,6 +82,53 @@ class ObraJS {
    *
    * @param {*} dir
    * @param {*} obj
+   * @param {*} dir
+   * @returns
+   */
+  oMap(arry, dir){
+    let route_map = "";
+     arry.map((item) => {
+       route_map += this.oString(dir, {...item});
+     });
+     return route_map;	
+  }
+  /**
+   *
+   * @param {*} dir
+   * @param {*} obj
+   * @param {*} dir
+   * @returns
+   */
+  oMapFile(arry, dir){
+    let route_map = "";
+     arry.map(({file, props}) => {
+       route_map += this.oString(dir + file, {...props});
+     });
+     return route_map;	
+  }
+
+  /**
+   *
+   * @param {*} routes
+   * @returns
+   */
+  oRoute(routes){
+   function handleRoute() {
+  	const path = window.location.pathname;
+  	const triggerFunction = routes[path];
+      if (triggerFunction) {
+    	triggerFunction();
+      } else {
+    	console.log("404: Page not found");
+      }
+   }
+   window.addEventListener("popstate", handleRoute);
+   window.addEventListener("DOMContentLoaded", handleRoute);	
+  }
+  /**
+   *
+   * @param {*} dir
+   * @param {*} obj
    * @param {*} async
    * @param {*} compressed
    * @returns
