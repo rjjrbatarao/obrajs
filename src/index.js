@@ -39,8 +39,6 @@ class ObraJS {
     return handler(vars);
   }
 
-
-
   async oHtmlGzip(id, dir, obj){
      const response = await fetch(dir);
      const ds = new DecompressionStream('gzip');
@@ -106,19 +104,24 @@ class ObraJS {
      return route_map;	
   }
 
+  oId(id){
+    return document.getElementById(id);
+  }
+
   /**
    *
    * @param {*} routes
    * @returns
    */
-  oRoute(routes){
+  oRoute(routes, middlewareFunc){
    function handleRoute() {
-  	const path = window.location.pathname;
-  	const triggerFunction = routes[path];
+      const path = window.location.pathname;
+      const triggerFunction = routes[path];
       if (triggerFunction) {
-    	triggerFunction();
+          middlewareFunc(path, triggerFunction);
       } else {
     	console.log("404: Page not found");
+	return;
       }
    }
    window.addEventListener("popstate", handleRoute);
