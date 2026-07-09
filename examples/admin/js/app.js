@@ -143,9 +143,24 @@ const sidebar = () => ojs.oMap(sidebar_array, "sidebars/sidebar_row.html"); // t
 const widget_half = () => ojs.oMapFile(widget_half_array, "widgets/"); // must be file and props // props can be any object format
 const widget_full = () => ojs.oMapFile(widget_full_array, "widgets/");
 
+let signed_in = false;
 /**
- * Route functions
+ *
  */
+const loadLogin = () => {
+  ojs.oHtml("login", "signin/signin.html", {
+    name: "Abdelrahman",
+    username_id: "username_id",
+    password_id: "password_id",
+    handle_login: (element) => {
+      console.log(
+        "button clicked",
+        ojs.oId("username_id").value,
+        ojs.oId("password_id").value,
+      );
+    },
+  });
+};
 const loadDashboard = () => {
   ojs.oHtml("dashboard", "sidebars/sidebar.html", {
     name: "Abdelrahman",
@@ -183,7 +198,6 @@ const loadFiles = () => {
     name: "Abdelrahman",
   });
 };
-
 const loadPlans = () => {
   ojs.oHtml("plans", "sidebars/sidebar.html", {
     name: "Abdelrahman",
@@ -202,10 +216,35 @@ const routes = {
   "/friends": loadFriends,
   "/files": loadFiles,
   "/plans": loadPlans,
+  "/login": loadLogin,
+};
+
+/**
+ *
+ * @param {*} path
+ * @param {*} callback is function executed from routes
+ * @returns
+ */
+const middlewareFunction = (path, routeFunc) => {
+  console.log("test", path);
+  if (path === "/login") {
+    if (signed_in) {
+      window.location.assign("/");
+    }
+    routeFunc();
+  } else {
+    if (signed_in) {
+      routeFunc();
+    } else {
+      window.location.assign("/login");
+    }
+  }
+
+  return signed_in;
 };
 
 /**
  *
  * Obra routing
  */
-ojs.oRoute(routes);
+ojs.oRoute(routes, middlewareFunction);

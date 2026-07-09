@@ -1,0 +1,49 @@
+<div class="login-box rad-10 p-20">
+  <div class="logo mb-20">🔒</div>
+
+  <h2 class="txt-c m-0">Modern Panel</h2>
+
+  <p class="txt-c c-grey mt-10 mb-20">Login to your account</p>
+
+  <form onsubmit="event.preventDefault()">
+    <label class="d-block fw-bold mb-10"> Username </label>
+
+    <input
+      type="text"
+      class="form-control mb-20"
+      placeholder="Enter username"
+      id="${username_id}"
+    />
+
+    <label class="d-block fw-bold mb-10"> Password </label>
+
+    <input
+      type="password"
+      class="form-control mb-20"
+      placeholder="Enter password"
+      id="${password_id}"
+    />
+
+    <div class="between-flex mb-20">
+      <label class="d-flex align-center fs-14">
+        <input type="checkbox" class="mr-10" />
+        Remember Me
+      </label>
+
+      <a href="#" class="c-blue fs-14"> Forgot Password? </a>
+    </div>
+
+    <button
+      type="submit"
+      onclick="${handle_login}"
+      class="w-full bg-blue c-white btn-shape b-none login-btn fs-15 fw-bold p-10"
+    >
+      LOGIN
+    </button>
+
+    <div class="login-footer">
+      &copy; 2026 CUATRO Technologies, Inc.<br />
+      All Rights Reserved.
+    </div>
+  </form>
+</div>
