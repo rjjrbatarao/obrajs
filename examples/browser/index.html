@@ -1,54 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="color-scheme" content="light dark">
-    <title>My ObraJS Webpage</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
-    <link rel="stylesheet" href="./assets/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/framework.css" />
+    <link rel="stylesheet" href="css/master.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/chartist.min.css" />
+    <script src="js/chartist.min.js"></script>
   </head>
-
   <body>
-  <!-- Top Header Navigation -->
-  <header class="container">
-    <nav>
-      <ul>
-        <li><strong>My App</strong></li>
-      </ul>
-      <ul>
-        <li><a href="#" class="secondary">Account</a></li>
-      </ul>
-    </nav>
-  </header>
-    
-    <main class="container">
- 
-      <!-- 1. The Sidebar Panel -->
-      <aside>
-        <nav>
-          <ul>
-            <li><a href="#" class="contrast">🚀 Dashboard</a></li>
-            <li><a href="#">📂 Projects</a></li>
-            <li><a href="#">📊 Analytics</a></li>
-            <li><a href="#">⚙️ Settings</a></li>
-          </ul>
-        </nav>
-      </aside>
-      <!-- 2. The Main Page Content Area -->
-      <section>
-        <h2>Main Content Area</h2>
-        <p>This layout uses Pico CSS's built-in grid element to display your navigation alongside your core content.</p>
-        <article>
-          <h3>Dashboard Overview</h3>
-          <p>As you scale your application window down, Pico CSS automatically adjusts the layout columns to become vertical cards for phone screens.</p>
-          <div id="app">test</div>
-        </article>
-      </section>
-        
-    
-    </main>
+    <div id="spinner"></div>
+    <div class="page d-flex">
+      <!-- Start Sidebar -->
+      <div class="sidebar bg-white p-20 p-relative" id="dashboard"></div>
+      <!-- End Sidebar -->
+      <div class="content w-full overflow-hidden">
+        <!-- Start Head -->
+        <div class="head bg-white p-15 between-flex" id="header"></div>
+        <!-- End Head -->
+        <h1 class="p-relative">Dashboard</h1>
+        <div id="widgets_half"></div>
+        <div id="widgets_full"></div>
+      </div>
+    </div>
   </body>
-  <script src="./obrajs.js"></script>
-  <script src="./app.js"></script>
+  <script src="js/obrajs.js"></script>
+  <script src="js/app.js"></script>
 </html>

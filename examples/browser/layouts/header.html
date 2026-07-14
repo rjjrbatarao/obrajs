@@ -1,0 +1,16 @@
+<div class="p-relative">
+  <input
+    class="p-5 txt-c main-border rad-10"
+    placeholder="Status: Running"
+    disabled
+  />
+</div>
+<div class="icons d-flex align-center">
+  <span class="notification p-relative">
+    <i class="fa-regular fa-bell fa-lg"></i>
+  </span>
+  <img src="imgs/avatar.png" alt="" onclick="${handle_menu}" />
+  <div class="user-menu p-relative">
+    <div class="dropdown-menu bg-white rad-6" id="${menu_id}">${menubar()}</div>
+  </div>
+</div>
