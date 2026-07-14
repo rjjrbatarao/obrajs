@@ -4,6 +4,7 @@
     https://developer.mozilla.org/en-US/docs/Web/API/DecompressionStream/DecompressionStream
     https://gist.github.com/igrigorik/5736866
     https://davidwalsh.name/javascript-arguments
+    https://gist.github.com/BenHall/1641205
 */
 class ObraJS {
   constructor() {}
@@ -32,7 +33,7 @@ class ObraJS {
           "'('+" +
           "vars[e].toString().replace(/\\\"/g,\"\'\")"  +
           "+')(event)'" +
-          ": vars[e].call() : vars[e];" +
+          ": setTimeout(() => {vars[e].call()}, 0) : vars[e];" +
           "}))",
       ].join("\n")
     );
@@ -104,10 +105,48 @@ class ObraJS {
      return route_map;	
   }
 
+  /**
+  *
+  */
+  oAssign(path){
+    window.location.assign(path);
+  }
+
+  /**
+  *
+  */
   oId(id){
     return document.getElementById(id);
   }
 
+  oGet(sKey) {
+    if (!sKey || !this.oHas(sKey)) { return null; }
+    return unescape(document.cookie.replace(new RegExp("(?:^|.*;\\s*)" + escape(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*((?:[^;](?!;))*[^;]?).*"), "$1"));
+  }
+
+  oSet(sKey, sValue, vEnd, sPath, sDomain, bSecure) {
+    if (!sKey || /^(?:expires|max\-age|path|domain|secure)$/.test(sKey)) { return; }
+      var sExpires = ""; 
+      if (vEnd) {
+        switch (typeof vEnd) {
+          case "number": sExpires = "; max-age=" + vEnd; break;
+          case "string": sExpires = "; expires=" + vEnd; break;
+          case "object": if (vEnd.hasOwnProperty("toGMTString")) { sExpires = "; expires=" + vEnd.toGMTString(); } break;
+        }   
+      }   
+      document.cookie = escape(sKey) + "=" + escape(sValue) + sExpires + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "") + (bSecure ? "; secure" : "");
+  }
+  
+  oRemove(sKey) {
+    if (!sKey || !this.oHas(sKey)) { return; }
+    var oExpDate = new Date();
+    oExpDate.setDate(oExpDate.getDate() - 1); 
+    document.cookie = escape(sKey) + "=; expires=" + oExpDate.toGMTString() + "; path=/";
+  }
+
+  oHas(sKey){ 
+   return (new RegExp("(?:^|;\\s*)" + escape(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=")).test(document.cookie); 
+  }
   /**
    *
    * @param {*} routes
